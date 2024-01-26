@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('napi_araks', function (Blueprint $table) {
+        Schema::create('napi_arak', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('napi_araks');
+        Schema::dropIfExists('napi_arak');
     }
 };
