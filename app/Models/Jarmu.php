@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Jarmu extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'rendszam';
+
+    protected $fillable = [
+        'felhasznalok_id',
+        'jarmu_tipus',
+        'generalt_azon',
+    ];
 }
