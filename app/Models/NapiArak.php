@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class NapiArak extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'ar_id';
+
+    protected $fillable = [
+        'megnevezes',
+        'ar',
+        'mikortol',
+        'tipus',
+    ];
 }

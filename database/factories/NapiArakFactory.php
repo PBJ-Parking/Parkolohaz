@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Tipus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class NapiArakFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'megnevezes' => fake('hu_HU')->sentence(),
+            'ar' => rand(350,1000),
+            'mikortol' => fake()->date(),
+            'tipus' => Tipus::all()->random()->id
         ];
     }
 }
