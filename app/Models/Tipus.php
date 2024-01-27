@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tipus extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'elnevezes'
+    ];
 }
