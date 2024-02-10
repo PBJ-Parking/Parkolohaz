@@ -9,6 +9,8 @@ class Berles extends Model
 {
     use HasFactory;
 
+    protected $table = 'berles';
+
     protected function setKeysForSaveQuery($query)
     {
         $query

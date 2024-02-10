@@ -9,6 +9,8 @@ class NapiArak extends Model
 {
     use HasFactory;
 
+    protected $table = 'napi_arak';
+
     protected $primaryKey = 'ar_id';
 
     protected $fillable = [

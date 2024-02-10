@@ -9,6 +9,8 @@ class Jarmu extends Model
 {
     use HasFactory;
 
+    protected $table = 'jarmu';
+
     protected $primaryKey = 'rendszam';
 
     protected $fillable = [
