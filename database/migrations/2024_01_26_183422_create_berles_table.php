@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('berles', function (Blueprint $table) {
             $table->primary(['rendszam', 'foglalas_datuma']);
             $table->foreignId('rendszam')->references('rendszam')->on('jarmu');
+            $table->date('foglalas_datuma');
             $table->date('foglalas_kezdet');
             $table->date('foglalas_vege');
             $table->foreignId('ar_id')->references('ar_id')->on('napi_arak');
