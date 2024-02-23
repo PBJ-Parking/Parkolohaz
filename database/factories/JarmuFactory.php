@@ -19,6 +19,7 @@ class JarmuFactory extends Factory
     public function definition(): array
     {
         return [
+            'rendszam' => fake()->regexify('[A-Z]{4}\d{3}'),
             'felhasznalok_id' => Felhasznalo::all()->random()->id,
             'jarmu_tipus' => Tipus::all()->random()->id,
             'generalt_azon' => fake()->boolean()

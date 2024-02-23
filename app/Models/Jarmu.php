@@ -13,7 +13,10 @@ class Jarmu extends Model
 
     protected $primaryKey = 'rendszam';
 
+    public $incrementing = false;
+
     protected $fillable = [
+        'rendszam',
         'felhasznalok_id',
         'jarmu_tipus',
         'generalt_azon',

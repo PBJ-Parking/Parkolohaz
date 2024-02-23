@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('berles', function (Blueprint $table) {
             $table->primary(['rendszam', 'foglalas_datuma']);
-            $table->foreignId('rendszam')->references('rendszam')->on('jarmu');
+            $table->string('rendszam');
+            $table->foreign('rendszam')->references('rendszam')->on('jarmu');
             $table->date('foglalas_datuma');
             $table->date('foglalas_kezdet');
             $table->date('foglalas_vege');
             $table->foreignId('ar_id')->references('ar_id')->on('napi_arak');
             $table->foreignId('kedvezmeny_id')->references('kedvezmeny_id')->on('kedvezmenyek');
             $table->foreignId('hely_id')->references('hely_id')->on('parkolohely');
-            $table->foreignId('generalt_kod')->references('rendszam')->on('jarmu');
+            $table->string('generalt_kod');
+            $table->foreign('generalt_kod')->references('rendszam')->on('jarmu');
             $table->boolean('fizetve');
             $table->timestamps();
         });

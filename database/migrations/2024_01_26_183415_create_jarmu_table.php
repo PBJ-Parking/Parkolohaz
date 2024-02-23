@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jarmu', function (Blueprint $table) {
-            $table->id('rendszam');
+            $table->string('rendszam')->primary();
             $table->foreignId('felhasznalok_id')->references('id')->on('felhasznalo');
             $table->foreignId('jarmu_tipus')->references('id')->on('tipus');
             $table->boolean('generalt_azon');
