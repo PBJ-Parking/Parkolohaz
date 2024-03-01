@@ -19,17 +19,17 @@ class Felhasznalo extends Model
         'jelszo',
         'megrendelo_tipus',
         'adoszam',
-        'admin-e',
+        'admin_e',
     ];
 
     protected $hidden = [
-        'password',
+        'jelszo',
         'remember_token',
     ];
 
     
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'jelszo' => 'hashed',
     ];
 }

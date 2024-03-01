@@ -24,7 +24,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->char('megrendelo_tipus', 1);
             $table->char('adoszam', 13);
-            $table->boolean('admin-e');
+            $table->boolean('admin_e');
             $table->timestamps();
         });
     }

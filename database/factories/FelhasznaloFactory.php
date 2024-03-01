@@ -24,7 +24,7 @@ class FelhasznaloFactory extends Factory
             'remember_token' => Str::random(10),
             'megrendelo_tipus'=>fake()->randomElement(['M', 'C']),
             'adoszam'=>fake()->regexify('[0-9]{13}'),
-            'admin-e'=>fake()->boolean(),
+            'admin_e'=>fake()->boolean(),
         ];
     }
 }
