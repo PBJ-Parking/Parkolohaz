@@ -17,7 +17,7 @@ class KedvezmenyekFactory extends Factory
     public function definition(): array
     {
         return [
-            'megnevezes' => fake('hu_HU')->sentence(),
+            'megnevezes' => fake('hu_HU')->text(50),
             'hatartol' => rand(400, 1000),
             'mikortol' => fake()->date(),
             'merteke' => rand(0,70),

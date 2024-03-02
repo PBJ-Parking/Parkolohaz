@@ -16,7 +16,7 @@ class FelhasznaloFactory extends Factory
     {
         return [
             'nev'=>fake('hu_HU')->name(),
-            'telefonszam'=>fake('hu_HU')->phoneNumber(),
+            'telefonszam'=>fake()->numerify('+36 ## ### ####'),
             'cim'=>fake('hu_HU')->address(),
             'email'=>fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
