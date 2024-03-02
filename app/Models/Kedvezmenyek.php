@@ -10,4 +10,12 @@ class Kedvezmenyek extends Model
     use HasFactory;
 
     protected $table = 'kedvezmenyek';
+    protected $primaryKey = 'kedvezmeny_id';
+
+    protected $fillable = [
+        'megnevezes',
+        'hatartol',
+        'mikortol',
+        'merteke',
+    ];
 }

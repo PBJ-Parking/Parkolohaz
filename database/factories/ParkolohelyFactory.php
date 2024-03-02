@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Tipus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +17,9 @@ class ParkolohelyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'hely_tipusa' => Tipus::all()->random()->id,
+            'statusz' => fake()->randomElement(['s', 'f', 'n', 'b']) ,
+           
         ];
     }
 }

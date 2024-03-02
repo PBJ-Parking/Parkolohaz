@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('parkolohely', function (Blueprint $table) {
-            $table->id();
+            $table->id('hely_id');
+            
+            $table->foreignId('hely_tipusa')->references('id')->on('tipus');
+            $table->char('statusz',1);
             $table->timestamps();
         });
     }
