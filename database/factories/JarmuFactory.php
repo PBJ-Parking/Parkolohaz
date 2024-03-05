@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Felhasznalo;
+use App\Models\User;
 use App\Models\Tipus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +20,7 @@ class JarmuFactory extends Factory
     {
         return [
             'rendszam' => fake()->regexify('[A-Z]{4}\d{3}'),
-            'felhasznalok_id' => Felhasznalo::all()->random()->id,
+            'felhasznalok_id' => User::all()->random()->id,
             'jarmu_tipus' => Tipus::all()->random()->id,
             'generalt_azon' => fake()->boolean()
         ];
