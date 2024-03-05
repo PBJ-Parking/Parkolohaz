@@ -14,7 +14,7 @@ class UserFactory extends Factory
     /**
      * The current password being used by the factory.
      */
-    protected static ?string $jelszo;
+    protected static ?string $password;
 
     /**
      * Define the model's default state.
@@ -24,12 +24,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'nev'=>fake('hu_HU')->name(),
+            'name'=>fake('hu_HU')->name(),
             'telefonszam'=>fake()->numerify('+36 ## ### ####'),
             'cim'=>fake('hu_HU')->address(),
             'email'=>fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'jelszo'=> static::$jelszo ??= Hash::make('jelszo'),
+            'password'=> static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'megrendelo_tipus'=>fake()->randomElement(['M', 'C']),
             'adoszam'=>fake()->regexify('[0-9]{13}'),

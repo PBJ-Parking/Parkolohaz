@@ -19,11 +19,11 @@ class FelhasznaloController extends Controller
 
     public function store(Request $request){
         $felhasznalo = new User();
-        $felhasznalo->nev = $request->nev;
+        $felhasznalo->name = $request->name;
         $felhasznalo->telefonszam = $request->telefonszam;
         $felhasznalo->cim = $request->cim;
         $felhasznalo->email = $request->email;
-        $felhasznalo->jelszo = $request->jelszo;
+        $felhasznalo->password = $request->password;
         $felhasznalo->megrendelo_tipus = $request->megrendelo_tipus;
         $felhasznalo->adoszam = $request->adoszam;
         $felhasznalo->admin_e = $request->admin_e;
@@ -32,11 +32,11 @@ class FelhasznaloController extends Controller
 
     public function update(Request $request, $id){
         $felhasznalo = User::find($id);
-        $felhasznalo->nev = $request->nev;
+        $felhasznalo->name = $request->name;
         $felhasznalo->telefonszam = $request->telefonszam;
         $felhasznalo->cim = $request->cim;
         $felhasznalo->email = $request->email;
-        $felhasznalo->jelszo = $request->jelszo;
+        $felhasznalo->password = $request->password;
         $felhasznalo->megrendelo_tipus = $request->megrendelo_tipus;
         $felhasznalo->adoszam = $request->adoszam;
         $felhasznalo->admin_e = $request->admin_e;

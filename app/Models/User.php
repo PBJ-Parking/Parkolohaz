@@ -20,11 +20,11 @@ class User extends Authenticatable
     protected $table = 'felhasznalo';
 
     protected $fillable = [
-        'nev',
+        'name',
         'telefonszam',
         'cim',
         'email',
-        'jelszo',
+        'password',
         'megrendelo_tipus',
         'adoszam',
         'admin_e',
@@ -36,7 +36,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'jelszo',
+        'password',
         'remember_token',
     ];
 
@@ -47,6 +47,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'jelszo' => 'hashed',
+        'password' => 'hashed',
     ];
 }
