@@ -14,6 +14,8 @@ class ProfileTest extends TestCase
     {
         $user = User::factory()->create();
 
+        //disable Vite
+        $this->withoutVite();
         $response = $this
             ->actingAs($user)
             ->get('/profile');
