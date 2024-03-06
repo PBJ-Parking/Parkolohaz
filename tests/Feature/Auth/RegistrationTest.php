@@ -11,9 +11,11 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+
+// átírva adatbázis szerkezet szerint
         $response = $this->post('/register', [
             'name' => 'Test User',
-            'telefonszam' => "+36 55 820 8816",
+            'telefonszam' => '+36 55 820 8816',
             'cim' => '2347 Ács Dobó tér 2.',
             'email' => 'test@example.com',
             'password' => 'password',

@@ -20,16 +20,23 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): Response
     {
+       
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+ // átírva adatbázis szerkezet szerint
         $user = User::create([
             'name' => $request->name,
+            'telefonszam' => $request->telefonszam,
+            'cim' =>  $request->cim,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'password_confirmation' => Hash::make($request->password),
+            'megrendelo_tipus' =>$request->megrendelo_tipus,
+            'adoszam' => $request->adoszam,
+            'admin_e' =>$request->admin_e,
         ]);
 
         event(new Registered($user));
