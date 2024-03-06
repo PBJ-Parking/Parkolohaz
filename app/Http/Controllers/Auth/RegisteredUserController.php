@@ -27,13 +27,16 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
  // átírva adatbázis szerkezet szerint
-        $user = User::create([
+       
+ $password= Hash::make($request->password);
+ $user = User::create([
+
             'name' => $request->name,
             'telefonszam' => $request->telefonszam,
             'cim' =>  $request->cim,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'password_confirmation' => Hash::make($request->password),
+            'password' => $password,
+            'password_confirmation' => $password,
             'megrendelo_tipus' =>$request->megrendelo_tipus,
             'adoszam' => $request->adoszam,
             'admin_e' =>$request->admin_e,
