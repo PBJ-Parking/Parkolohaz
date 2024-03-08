@@ -12,16 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        /* DB::unprepared(
+       /*  DB::unprepared(
             "
-        CREATE TRIGGER trg_check_mikortol_date
-        BEFORE INSERT ON napi_arak
+        CREATE TRIGGER trg_foglalas_kezdete_nem_lehet_kisebb_az_aktualis_napnal
+        BEFORE INSERT ON berles
         FOR EACH ROW
         BEGIN
-            IF NEW.mikortol <= NOW() THEN
+            IF NEW.foglalas_kezdet < NOW() THEN
                 SIGNAL SQLSTATE '45000'
-                    SET MESSAGE_TEXT = 'mikortol-nak nagyobbnak kell lennie, mint ma.';
+                    SET MESSAGE_TEXT = 'A foglalás kezdetének nagyobbnak vagy egyenlőnek kell lennie az aktuális naphoz képest!';
             END IF;
         END;"
         ); */
@@ -32,6 +31,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        DB::unprepared(
+            'drop trigger trg_foglalas_kezdete_nem_lehet_kisebb_az_aktualis_napnal'
+        );
     }
 };

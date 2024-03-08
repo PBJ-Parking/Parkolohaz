@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -24,9 +25,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->char('megrendelo_tipus', 1);
             $table->char('adoszam', 13);
-            $table->boolean('admin_e');
+            $table->boolean('admin_e')-> default(0);
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE felhasznalo ADD CONSTRAINT chk_ceges_vagy_maganszemely_lehet_csak_megadva CHECK (megrendelo_tipus = "M" or megrendelo_tipus = "C");');
+
     }
 
     /**
