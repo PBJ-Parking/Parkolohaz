@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,6 +20,9 @@ return new class extends Migration
             $table->foreignId('tipus')->references('id')->on('tipus');
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE napi_arak ADD CONSTRAINT chk_ar_nagyobb_mint_nulla CHECK (ar > 0);');
+        DB::statement('ALTER TABLE napi_arak ADD CONSTRAINT chk_mikortol_datum_nagyobb_mint_ma CHECK (mikortol > CURRENT_DATE());');
     }
 
     /**
