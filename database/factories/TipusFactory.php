@@ -17,7 +17,7 @@ class TipusFactory extends Factory
     public function definition(): array
     {
         return [
-            'elnevezes' => fake('hu_HU')->word()
+            'elnevezes' => fake('hu_HU')->unique->realText(50)
         ];
     }
 }
