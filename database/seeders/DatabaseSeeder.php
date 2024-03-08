@@ -55,6 +55,6 @@ class DatabaseSeeder extends Seeder
     }
 
     /*
-    asdasdasd
+    kalács
     */
 }
