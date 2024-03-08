@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class FelhasznaloController extends Controller
+class UserController extends Controller
 {
     public function index(){
         $felhasznalok = response()->json(User::all());
