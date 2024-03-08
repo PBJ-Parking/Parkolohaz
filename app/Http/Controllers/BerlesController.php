@@ -13,11 +13,12 @@ class BerlesController extends Controller
         return $berlesek;
     }
 
-    public function show($id)
+    public function show ($rendszam, $foglalas_datuma)
     {
-        $berles = response()->json(Berles::find($id));
-        return $berles;
+        $berles = Berles::where('rendszam', $rendszam)->where('foglalas_datuma', $foglalas_datuma)->get();
+        return $berles[0];
     }
+
 
     public function store(Request $request)
     {
@@ -34,11 +35,9 @@ class BerlesController extends Controller
         $berles->save();
     }
 
-    public function update(Request $request, $id)
-    {
-        $berles = Berles::find($id);
-        $berles->rendszam = $request->rendszam;
-        $berles->foglalas_datuma = $request->foglalas_datuma;
+    public function update(Request $request, $rendszam, $foglalas_datuma)
+    {   
+        $berles = $this->show($rendszam, $foglalas_datuma);
         $berles->foglalas_kezdet = $request->foglalas_kezdet;
         $berles->foglalas_vege = $request->foglalas_vege;
         $berles->ar_id = $request->ar_id;
@@ -49,8 +48,8 @@ class BerlesController extends Controller
         $berles->save();
     }
 
-    public function destroy($id)
+    public function destroy($rendszam, $foglalas_datuma)
     {
-        Berles::find($id)->delete();
+        $this->show($rendszam, $foglalas_datuma)->delete();
     }
 }
