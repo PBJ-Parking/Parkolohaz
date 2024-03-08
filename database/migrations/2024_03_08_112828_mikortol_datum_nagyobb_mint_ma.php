@@ -15,7 +15,6 @@ return new class extends Migration
 
         DB::unprepared(
             "
-        DELIMITER //
         CREATE TRIGGER trg_check_mikortol_date
         BEFORE INSERT ON napi_arak
         FOR EACH ROW
@@ -24,9 +23,7 @@ return new class extends Migration
                 SIGNAL SQLSTATE '45000'
                     SET MESSAGE_TEXT = 'mikortol-nak nagyobbnak kell lennie, mint ma.';
             END IF;
-        END;
-        //
-        DELIMITER ;"
+        END;"
         );
     }
 

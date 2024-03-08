@@ -17,10 +17,12 @@ class NapiArakFactory extends Factory
      */
     public function definition(): array
     {
+        $datum = fake()->dateTimeBetween('now', '+1 year');
+
         return [
             'megnevezes' => fake('hu_HU')->sentence(),
             'ar' => rand(350,1000),
-            'mikortol' => fake()->date(),
+            'mikortol' => $datum,
             'tipus' => Tipus::all()->random()->id
         ];
     }
