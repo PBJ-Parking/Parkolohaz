@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,18 +14,47 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\User::factory(20)->create();
-         \App\Models\Tipus::factory(5)->create();
-         \App\Models\Jarmu::factory(25)->create();
-         \App\Models\NapiArak::factory(15)->create();
-         \App\Models\Kedvezmenyek::factory(7)->create();
-         \App\Models\Parkolohely::factory(50)->create();
-         \App\Models\Berles::factory(100)->create();
+        \App\Models\User::factory(20)->create();
+        \App\Models\Tipus::factory(1)->create([
+            "elnevezes" => "mozgássérült"
+        ]);
 
+        \App\Models\Tipus::factory(1)->create([
+            "elnevezes" => "elektromos"
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\Tipus::factory(1)->create([
+            "elnevezes" => "hagyományos"
+        ]);
+
+        \App\Models\Tipus::factory(1)->create([
+            "elnevezes" => "motor"
+        ]);
+
+        \App\Models\Jarmu::factory(25)->create();
+
+        $kezdodatum = Carbon::now()->subYear(2);
+
+        \App\Models\NapiArak::factory(1)->create([
+            'mikortol' => $kezdodatum
+        ]);
+
+        $kovetkezo_datum = $kezdodatum;
+        for ($i = 0; $i < 10; $i++) {
+                $mennyiseg = rand(30, 100);
+                $kovetkezo_datum = $kovetkezo_datum->addDays($mennyiseg);
+
+            \App\Models\NapiArak::factory(1)->create([
+                'mikortol' => $kovetkezo_datum
+            ]);
+        }
+
+        \App\Models\Kedvezmenyek::factory(7)->create();
+        \App\Models\Parkolohely::factory(50)->create();
+        \App\Models\Berles::factory(100)->create();
     }
+
+    /*
+    asdasdasd
+    */
 }

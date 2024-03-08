@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Tipus;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NapiArak>
@@ -17,12 +18,11 @@ class NapiArakFactory extends Factory
      */
     public function definition(): array
     {
-        $datum = fake()->dateTimeBetween('now', '+1 year');
-
+        
         return [
-            'megnevezes' => fake('hu_HU')->sentence(),
-            'ar' => rand(350,1000),
-            'mikortol' => $datum,
+            'megnevezes' => fake('hu_HU')->realText(),
+            'ar' => rand(350, 1000),
+            'mikortol' => '2024-10-10',
             'tipus' => Tipus::all()->random()->id
         ];
     }
