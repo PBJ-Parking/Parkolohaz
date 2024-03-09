@@ -19,7 +19,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 
-Route::middleware('auth.basic')->group(function () {
+Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
 
     Route::middleware(['admin'])->group(function () {
