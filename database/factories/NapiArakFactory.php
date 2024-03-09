@@ -20,7 +20,7 @@ class NapiArakFactory extends Factory
     {
         
         return [
-            'megnevezes' => fake('hu_HU')->realText(),
+            'megnevezes' => fake('hu_HU')->realText(50),
             'ar' => rand(350, 1000),
             'mikortol' => '2024-10-10',
             'tipus' => Tipus::all()->random()->id

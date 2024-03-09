@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->primary(['rendszam', 'foglalas_datuma']);
             $table->string('rendszam');
             $table->foreign('rendszam')->references('rendszam')->on('jarmu');
-            $table->date('foglalas_datuma');
+            $table->dateTime('foglalas_datuma')->default(now());
             $table->date('foglalas_kezdet');
             $table->date('foglalas_vege');
             $table->foreignId('ar_id')->references('ar_id')->on('napi_arak');
@@ -26,6 +27,9 @@ return new class extends Migration
             $table->boolean('fizetve');
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE berles ADD CONSTRAINT chk_vege_nagyobb_egyenlo_mint_kezdete CHECK (foglalas_vege >= foglalas_kezdet);');
+
     }
 
     /**

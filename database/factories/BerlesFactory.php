@@ -13,18 +13,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BerlesFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    
     public function definition(): array
     {
+        $foglalas = fake()->dateTimeBetween('-3 hour', 'now');
+        $kezdet = fake()->dateTimeBetween($foglalas, '+10 days');
         return [
             'rendszam' => Jarmu::all()->random()->rendszam,
-            'foglalas_datuma' => fake()->dateTime(),
-            'foglalas_kezdet' => fake()->date(),
-            'foglalas_vege' => fake()->date(),
+            'foglalas_datuma' => $foglalas,
+            'foglalas_kezdet' => $kezdet,
+            'foglalas_vege' => fake()->dateTimeBetween($kezdet, '+3 years'),
             'ar_id' => NapiArak::all()->random()->ar_id,
             'kedvezmeny_id' => Kedvezmenyek::all()->random()->kedvezmeny_id,
             'hely_id' => Parkolohely::all()->random()->hely_id,

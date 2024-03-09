@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('rendszam')->primary();
             $table->foreignId('felhasznalok_id')->references('id')->on('felhasznalo');
             $table->foreignId('jarmu_tipus')->references('id')->on('tipus');
-            $table->boolean('generalt_azon');
+            $table->boolean('generalt_azon')->default(0);
             $table->timestamps();
         });
     }
