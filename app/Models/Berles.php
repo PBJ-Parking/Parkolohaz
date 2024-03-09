@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Berles extends Model
 {
@@ -32,4 +33,24 @@ class Berles extends Model
         'generalt_kod',
         'fizetve',
     ];
+
+    public function napi_ar(): BelongsTo
+    {
+        return $this->belongsTo(NapiArak::class);
+    }
+
+    public function kedvezmeny(): BelongsTo
+    {
+        return $this->belongsTo(Kedvezmenyek::class);
+    }
+
+    public function parkolohely(): BelongsTo
+    {
+        return $this->belongsTo(Parkolohely::class);
+    }
+
+    public function jarmu(): BelongsTo
+    {
+        return $this->belongsTo(Jarmu::class);
+    }
 }
