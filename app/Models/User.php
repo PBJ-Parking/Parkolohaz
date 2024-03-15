@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function jarmuvek(): HasMany
     {
-        return $this->hasMany(Jarmu::class);
+        return $this->hasMany(Jarmu::class, 'felhasznalok_id' , 'id');
     }
 }

@@ -22,11 +22,11 @@ class Parkolohely extends Model
 
     public function tipus(): BelongsTo
     {
-        return $this->belongsTo(Tipus::class);
+        return $this->belongsTo(Tipus::class, 'hely_tipusa', 'id');
     }
 
     public function berlesek(): HasMany
     {
-        return $this->hasMany(Berles::class);
+        return $this->hasMany(Berles::class, 'hely_id', 'hely_id');
     }
 }

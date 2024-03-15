@@ -18,16 +18,16 @@ class Tipus extends Model
 
     public function jarmuvek(): HasMany
     {
-        return $this->hasMany(Jarmu::class);
+        return $this->hasMany(Jarmu::class, 'jarmu_tipus', 'id');
     }
 
     public function napi_arak(): HasMany
     {
-        return $this->hasMany(NapiArak::class);
+        return $this->hasMany(NapiArak::class, 'tipus', 'id');
     }
 
     public function parkolohelyek(): HasMany
     {
-        return $this->hasMany(Parkolohely::class);
+        return $this->hasMany(Parkolohely::class, 'hely_tipusa', 'id');
     }
 }

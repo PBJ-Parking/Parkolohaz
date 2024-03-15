@@ -26,16 +26,16 @@ class Jarmu extends Model
 
     public function felhasznalo(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'felhasznalok_id', 'id');
     }
 
     public function tipus(): BelongsTo
     {
-        return $this->belongsTo(Tipus::class);
+        return $this->belongsTo(Tipus::class, 'jarmu_tipus', 'id');
     }
 
     public function berlesek(): HasMany
     {
-        return $this->hasMany(Berles::class);
+        return $this->hasMany(Berles::class, 'rendszam', 'rendszam');
     }
 }

@@ -36,21 +36,21 @@ class Berles extends Model
 
     public function napi_ar(): BelongsTo
     {
-        return $this->belongsTo(NapiArak::class);
+        return $this->belongsTo(NapiArak::class, 'ar_id', 'ar_id');
     }
 
     public function kedvezmeny(): BelongsTo
     {
-        return $this->belongsTo(Kedvezmenyek::class);
+        return $this->belongsTo(Kedvezmenyek::class, 'kedvezmeny_id', 'kedvezmeny_id');
     }
 
     public function parkolohely(): BelongsTo
     {
-        return $this->belongsTo(Parkolohely::class);
+        return $this->belongsTo(Parkolohely::class, 'hely_id', 'hely_id');
     }
 
     public function jarmu(): BelongsTo
     {
-        return $this->belongsTo(Jarmu::class);
+        return $this->belongsTo(Jarmu::class, 'rendszam', 'rendszam');
     }
 }

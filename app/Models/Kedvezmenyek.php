@@ -22,6 +22,6 @@ class Kedvezmenyek extends Model
 
     public function berlesek(): HasMany
     {
-        return $this->hasMany(Berles::class);
+        return $this->hasMany(Berles::class, 'kedvezmeny_id', 'kedvezmeny_id');
     }
 }

@@ -24,11 +24,11 @@ class NapiArak extends Model
 
     public function tipus(): BelongsTo
     {
-        return $this->belongsTo(Tipus::class);
+        return $this->belongsTo(Tipus::class, 'tipus', 'id');
     }
 
     public function berlesek(): HasMany
     {
-        return $this->hasMany(Berles::class);
+        return $this->hasMany(Berles::class, 'ar_id', 'ar_id');
     }
 }
