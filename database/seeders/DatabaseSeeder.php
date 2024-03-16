@@ -39,6 +39,12 @@ class DatabaseSeeder extends Seeder
             'mikortol' => $kezdodatum
         ]);
 
+        \App\Models\User::factory(1)->create([
+            'name' => "Alig Elek",
+            'email' => "dogoljmeg@dead.com",
+            'password' => "hateyoudad"
+        ]);
+
         $kovetkezo_datum = $kezdodatum;
         for ($i = 0; $i < 10; $i++) {
                 $mennyiseg = rand(30, 100);

@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('felhasznalo', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->char('telefonszam', 15);
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE felhasznalo ADD CONSTRAINT chk_ceges_vagy_maganszemely_lehet_csak_megadva CHECK (megrendelo_tipus = "M" or megrendelo_tipus = "C");');
+        DB::statement('ALTER TABLE user ADD CONSTRAINT chk_ceges_vagy_maganszemely_lehet_csak_megadva CHECK (megrendelo_tipus = "M" or megrendelo_tipus = "C");');
 
     }
 
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('felhasznalo');
+        Schema::dropIfExists('user');
     }
 };

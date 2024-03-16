@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,12 +19,16 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('/user', UserController::class); 
 
 Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
+        Route::get('/authUser', [UserController::class, 'authUser']);
 
     Route::middleware(['admin'])->group(function () {
         #admin api-jai:
     });
 });
 #vendég api-jai:
+
+

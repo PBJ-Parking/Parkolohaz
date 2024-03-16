@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jarmu', function (Blueprint $table) {
             $table->string('rendszam')->primary();
-            $table->foreignId('felhasznalok_id')->references('id')->on('felhasznalo');
+            $table->foreignId('felhasznalok_id')->references('id')->on('user');
             $table->foreignId('jarmu_tipus')->references('id')->on('tipus');
             $table->boolean('generalt_azon')->default(0);
             $table->timestamps();

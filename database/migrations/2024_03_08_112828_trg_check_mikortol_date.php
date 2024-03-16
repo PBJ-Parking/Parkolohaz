@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-         DB::unprepared(
+         /* DB::unprepared(
              "
          CREATE TRIGGER trg_check_mikortol_date
          BEFORE INSERT ON napi_arak
@@ -23,7 +23,7 @@ return new class extends Migration
                      SET MESSAGE_TEXT = 'mikortol-nak nagyobbnak kell lennie, mint ma.';
              END IF;
          END;"
-         );
+         ); */
     }
 
     /**

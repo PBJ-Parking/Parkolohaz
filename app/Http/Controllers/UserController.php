@@ -46,4 +46,9 @@ class UserController extends Controller
     {
         User::find($id)->delete();
     }
+
+    public function authUser(){
+        $felhasznalo = auth()->user();
+        return $felhasznalo;
+    }
 }
