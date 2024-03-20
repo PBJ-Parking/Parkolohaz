@@ -45,6 +45,13 @@ class DatabaseSeeder extends Seeder
             'password' => "hateyoudad"
         ]);
 
+        \App\Models\User::factory(1)->create([
+            'name' => "Admin Bandi",
+            'email' => "admin@admin.com",
+            'password' => "admin123",
+            "admin_e" => 1
+        ]);
+
         $kovetkezo_datum = $kezdodatum;
         for ($i = 0; $i < 10; $i++) {
                 $mennyiseg = rand(30, 100);
