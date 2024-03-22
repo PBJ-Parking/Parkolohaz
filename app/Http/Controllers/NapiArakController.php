@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NapiArak;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NapiArakController extends Controller
 {
@@ -42,4 +43,10 @@ class NapiArakController extends Controller
     {
         NapiArak::find($id)->delete();
     }
+
+    public function akt_arak(){
+       return  DB::select("SELECT * from (Select Max(mikortol) as mikortol, tipus FROM `napi_arak` where mikortol<=CURRENT_DATE() GROUP by tipus) tipusonkent inner join Napi_arak using (mikortol, tipus);");
+
+   
+}
 }

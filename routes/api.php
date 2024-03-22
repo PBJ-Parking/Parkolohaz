@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NapiArakController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,5 @@ Route::middleware(['auth.basic'])->group(function () {
     });
 });
 #vendég api-jai:
-
+Route::get('/akt_arak', [NapiArakController::class,'akt_arak']);
 
