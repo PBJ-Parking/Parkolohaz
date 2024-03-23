@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kedvezmenyek;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KedvezmenyekController extends Controller
 {
@@ -43,4 +44,11 @@ class KedvezmenyekController extends Controller
         Kedvezmenyek::find($id)->delete();
     }
 
+    public function kedvezmeny_mikortol($mikortol)
+    {
+        return DB::select('
+            select * from kedvezmenyek
+            where mikortol = ? 
+        ', [$mikortol]);
+    }
 }
