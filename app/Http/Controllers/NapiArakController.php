@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NapiArak;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NapiArakController extends Controller
 {
@@ -42,4 +43,12 @@ class NapiArakController extends Controller
     {
         NapiArak::find($id)->delete();
     }
+
+    public function napi_arak_tipus($tipus){
+        $lekerdezes = NapiArak::where('tipus', $tipus)->get();
+        $napi_arak = response()->json($lekerdezes);
+        return $napi_arak;
+    }
+
+
 }

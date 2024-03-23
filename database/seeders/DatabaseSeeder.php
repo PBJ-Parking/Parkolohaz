@@ -66,8 +66,4 @@ class DatabaseSeeder extends Seeder
         \App\Models\Parkolohely::factory(50)->create();
         \App\Models\Berles::factory(100)->create();
     }
-
-    /*
-    kalács
-    */
 }

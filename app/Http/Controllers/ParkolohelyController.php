@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Parkolohely;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ParkolohelyController extends Controller
 {
@@ -37,5 +38,13 @@ class ParkolohelyController extends Controller
     public function destroy($id)
     {
         Parkolohely::find($id)->delete();
+    }
+
+    public function parkolohely_statusz($statusz)
+    {
+        return DB::select("
+        SELECT * FROM parkolohely
+        where statusz = ?;
+        ", [$statusz]);
     }
 }
