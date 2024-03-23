@@ -52,6 +52,14 @@ class DatabaseSeeder extends Seeder
             "admin_e" => 1
         ]);
 
+        \App\Models\Jarmu::factory(1)->create([
+            'rendszam' => "FOS666",
+            'felhasznalok_id' => 21,
+            'jarmu_tipus' => 1,
+            "generalt_azon" => 1
+        ]);
+
+
         $kovetkezo_datum = $kezdodatum;
         for ($i = 0; $i < 10; $i++) {
                 $mennyiseg = rand(30, 100);

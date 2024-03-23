@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JarmuController;
 use App\Http\Controllers\NapiArakController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -25,6 +26,8 @@ Route::apiResource('/user', UserController::class);
 Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
         Route::get('/authUser', [UserController::class, 'authUser']);
+        #bejelentkezett felhasználó rendszáma
+        Route::get('/authAdatok', JarmuController::class, 'AuthJarmu');
 
     Route::middleware(['admin'])->group(function () {
         #admin api-jai:
@@ -32,4 +35,8 @@ Route::middleware(['auth.basic'])->group(function () {
 });
 #vendég api-jai:
 Route::get('/akt_arak', [NapiArakController::class,'akt_arak']);
+
+
+
+
 

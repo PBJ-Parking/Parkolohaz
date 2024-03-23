@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jarmu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JarmuController extends Controller
 {
@@ -40,4 +41,11 @@ class JarmuController extends Controller
     {
         Jarmu::find($id)->delete();
     }
+
+    public function AuthJarmu(){
+        $felhasznalo = Auth::user()->id;
+        $jarmu = Jarmu::with('user')->where('felhasznalok_id', '=', $felhasznalo)->get();
+        return $jarmu;
+    }
+
 }
