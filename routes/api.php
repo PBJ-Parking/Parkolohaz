@@ -31,7 +31,7 @@ Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
         Route::get('/authUser', [UserController::class, 'authUser']);
         #bejelentkezett felhasználó rendszáma
-        Route::get('/authAdatok', JarmuController::class, 'AuthJarmu');
+        Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']);
 
         Route::middleware(['admin'])->group(function () {
             #admin api-jai:

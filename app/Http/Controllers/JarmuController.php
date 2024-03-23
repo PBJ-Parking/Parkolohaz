@@ -44,7 +44,7 @@ class JarmuController extends Controller
 
     public function AuthJarmu(){
         $felhasznalo = Auth::user()->id;
-        $jarmu = Jarmu::with('user')->where('felhasznalok_id', '=', $felhasznalo)->get();
+        $jarmu = Jarmu::with('felhasznalo')->where('felhasznalok_id', '=', $felhasznalo)->get();
         return $jarmu;
     }
 

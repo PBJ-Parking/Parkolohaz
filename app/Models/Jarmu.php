@@ -24,7 +24,7 @@ class Jarmu extends Model
         'generalt_azon',
     ];
 
-    public function felhasznalo(): BelongsTo //ez minek?
+    public function felhasznalo(): BelongsTo
     {
         return $this->belongsTo(User::class, 'felhasznalok_id', 'id');
     }
