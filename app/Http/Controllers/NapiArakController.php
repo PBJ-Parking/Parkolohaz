@@ -44,11 +44,15 @@ class NapiArakController extends Controller
         NapiArak::find($id)->delete();
     }
 
+
     public function napi_arak_tipus($tipus){
         $lekerdezes = NapiArak::where('tipus', $tipus)->get();
         $napi_arak = response()->json($lekerdezes);
         return $napi_arak;
     }
 
+    public function akt_arak(){
+       return  DB::select("SELECT * from (Select Max(mikortol) as mikortol, tipus FROM `napi_arak` where mikortol<=CURRENT_DATE() GROUP by tipus) tipusonkent inner join Napi_arak using (mikortol, tipus);");
+    }
 
 }

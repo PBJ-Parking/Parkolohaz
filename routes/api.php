@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\BerlesController;
-use App\Http\Controllers\JarmuController;
 use App\Http\Controllers\KedvezmenyekController;
-use App\Http\Controllers\NapiArakController;
 use App\Http\Controllers\ParkolohelyController;
 use App\Http\Controllers\TipusController;
+use App\Http\Controllers\JarmuController;
+use App\Http\Controllers\NapiArakController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +30,8 @@ Route::apiResource('/user', UserController::class);
 Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
         Route::get('/authUser', [UserController::class, 'authUser']);
+        #bejelentkezett felhasználó rendszáma
+        Route::get('/authAdatok', JarmuController::class, 'AuthJarmu');
 
         Route::middleware(['admin'])->group(function () {
             #admin api-jai:
@@ -77,5 +79,9 @@ Route::middleware(['auth.basic'])->group(function () {
         });
 });
 #vendég api-jai:
+Route::get('/akt_arak', [NapiArakController::class,'akt_arak']);
+
+
+
 
 
