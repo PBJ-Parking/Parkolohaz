@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
         $felhasznalo->telefonszam = $request->telefonszam;
         $felhasznalo->cim = $request->cim;
         $felhasznalo->email = $request->email;
-        $felhasznalo->password = $request->password;
+        $felhasznalo->password = Hash::make($request->password);
         $felhasznalo->megrendelo_tipus = $request->megrendelo_tipus;
         $felhasznalo->adoszam = $request->adoszam;
         $felhasznalo->admin_e = $request->admin_e;

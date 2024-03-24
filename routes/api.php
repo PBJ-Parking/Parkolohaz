@@ -30,6 +30,8 @@ Route::apiResource('/user', UserController::class);
 Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
         Route::get('/authUser', [UserController::class, 'authUser']);
+        //Felhasznalo adatainak módosítása
+        Route::put('felhasznalo/{id}', [UserController::class, 'update']);
         #bejelentkezett felhasználó rendszáma
         Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']);
 
