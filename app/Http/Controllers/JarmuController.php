@@ -37,6 +37,17 @@ class JarmuController extends Controller
         $jarmu->generalt_azon = $request->generalt_azon;
         $jarmu->save();
     }
+
+    public function patch(Request $request, $rendszam)
+    {
+        $jarmu = Jarmu::find($rendszam);
+        $jarmu->fill($request->only([
+            'rendszam',
+            
+        ]));
+        $jarmu->save();
+    }
+
     public function destroy($id)
     {
         Jarmu::find($id)->delete();
@@ -44,7 +55,7 @@ class JarmuController extends Controller
 
     public function AuthJarmu(){
         $felhasznalo = Auth::user()->id;
-        $jarmu = Jarmu::with('felhasznalo')->where('felhasznalok_id', '=', $felhasznalo)->get();
+        $jarmu = Jarmu::with('felhasznalo')->where('felhasznalok_id', '=', $felhasznalo)->first();
         return $jarmu;
     }
 

@@ -8,17 +8,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $felhasznalok = response()->json(User::all());
         return $felhasznalok;
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $felhasznalo = response()->json(User::find($id));
         return $felhasznalo;
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $felhasznalo = new User();
         $felhasznalo->name = $request->name;
         $felhasznalo->telefonszam = $request->telefonszam;
@@ -31,7 +34,8 @@ class UserController extends Controller
         $felhasznalo->save();
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $felhasznalo = User::find($id);
         $felhasznalo->name = $request->name;
         $felhasznalo->telefonszam = $request->telefonszam;
@@ -43,12 +47,33 @@ class UserController extends Controller
         $felhasznalo->admin_e = $request->admin_e;
         $felhasznalo->save();
     }
+
+    public function patch(Request $request, $id)
+    {
+        $felhasznalo = User::find($id);
+        $felhasznalo->fill($request->only([
+            'name',
+            'telefonszam',
+            'cim',
+            'email',
+            'password',
+            'adoszam',
+        ]));
+        if ($request->has('password')) {
+            $felhasznalo->password = Hash::make($request->password);
+        }
+        $felhasznalo->save();
+    }
+
+
+
     public function destroy($id)
     {
         User::find($id)->delete();
     }
 
-    public function authUser(){
+    public function authUser()
+    {
         $felhasznalo = auth()->user();
         return $felhasznalo;
     }

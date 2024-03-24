@@ -19,14 +19,13 @@ class BerlesFactory extends Factory
         $foglalas = fake()->dateTimeBetween('-3 hour', 'now');
         $kezdet = fake()->dateTimeBetween($foglalas, '+10 days');
         return [
-            'rendszam' => Jarmu::all()->random()->rendszam,
+            'jarmu_id' =>Jarmu::all()->random()->jarmu_id,
             'foglalas_datuma' => $foglalas,
             'foglalas_kezdet' => $kezdet,
             'foglalas_vege' => fake()->dateTimeBetween($kezdet, '+3 years'),
             'ar_id' => NapiArak::all()->random()->ar_id,
             'kedvezmeny_id' => Kedvezmenyek::all()->random()->kedvezmeny_id,
             'hely_id' => Parkolohely::all()->random()->hely_id,
-            'generalt_kod' => Jarmu::all()->random()->rendszam,
             'fizetve' => fake()->boolean(),
         ];
     }

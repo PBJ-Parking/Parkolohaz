@@ -13,17 +13,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('berles', function (Blueprint $table) {
-            $table->primary(['rendszam', 'foglalas_datuma']);
-            $table->string('rendszam');
-            $table->foreign('rendszam')->references('rendszam')->on('jarmu');
+            $table->primary(['jarmu_id', 'foglalas_datuma']);
+            $table->foreignId('jarmu_id')->references('jarmu_id')->on('jarmu');
             $table->dateTime('foglalas_datuma')->default(now());
             $table->date('foglalas_kezdet');
             $table->date('foglalas_vege');
             $table->foreignId('ar_id')->references('ar_id')->on('napi_arak');
             $table->foreignId('kedvezmeny_id')->references('kedvezmeny_id')->on('kedvezmenyek');
             $table->foreignId('hely_id')->references('hely_id')->on('parkolohely');
-            $table->string('generalt_kod');
-            $table->foreign('generalt_kod')->references('rendszam')->on('jarmu');
             $table->boolean('fizetve');
             $table->timestamps();
         });

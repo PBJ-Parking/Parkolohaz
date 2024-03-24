@@ -15,7 +15,7 @@ class Berles extends Model
     protected function setKeysForSaveQuery($query)
     {
         $query
-            ->where('rendszam', '=', $this->getAttribute('rendszam'))
+            ->where('jarmu_id', '=', $this->getAttribute('jarmu_id'))
             ->where('foglalas_datuma', '=', $this->getAttribute('foglalas_datuma'));
 
 
@@ -23,14 +23,12 @@ class Berles extends Model
     }
 
     protected $fillable = [
-        'rendszam',
         'foglalas_datuma',
         'foglalas_kezdet',
         'foglalas_vege',
         'ar_id',
         'kedvezmeny_id',
         'hely_id',
-        'generalt_kod',
         'fizetve',
     ];
 
@@ -51,6 +49,6 @@ class Berles extends Model
 
     public function jarmu(): BelongsTo
     {
-        return $this->belongsTo(Jarmu::class, 'rendszam', 'rendszam');
+        return $this->belongsTo(Jarmu::class, 'jarmu_id', 'jarmu_id');
     }
 }

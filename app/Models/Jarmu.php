@@ -13,9 +13,7 @@ class Jarmu extends Model
 
     protected $table = 'jarmu';
 
-    protected $primaryKey = 'rendszam';
-
-    public $incrementing = false;
+    protected $primaryKey = 'jarmu_id';
 
     protected $fillable = [
         'rendszam',
@@ -36,6 +34,6 @@ class Jarmu extends Model
 
     public function berlesek(): HasMany
     {
-        return $this->hasMany(Berles::class, 'rendszam', 'rendszam');
+        return $this->hasMany(Berles::class, 'jarmu_id', 'jarmu_id');
     }
 }

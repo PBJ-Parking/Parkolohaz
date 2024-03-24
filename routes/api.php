@@ -25,14 +25,18 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/user', UserController::class); 
+Route::apiResource('/users', UserController::class);
+
+
 
 Route::middleware(['auth.basic'])->group(function () {
         #felhasználó api-jai:
         Route::get('/authUser', [UserController::class, 'authUser']);
         //Felhasznalo adatainak módosítása
-        Route::put('felhasznalo/{id}', [UserController::class, 'update']);
-        #bejelentkezett felhasználó rendszáma
+        Route::patch('felhasznalo/{id}', [UserController::class, 'patch']);
+        Route::patch('jarmu/{id}', [JarmuController::class, 'patch']);
+        
+        #bejelentkezett felhasználó Jármű adatai
         Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']);
 
         Route::middleware(['admin'])->group(function () {
@@ -50,8 +54,8 @@ Route::middleware(['auth.basic'])->group(function () {
     
             //Jarmu (admin route)
             Route::get('jarmuvek', [JarmuController::class, 'index']);
-            Route::put('jarmu/{rendszam}', [JarmuController::class, 'update']);
-            Route::delete('jarmu/{rendszam}', [JarmuController::class, 'destroy']);
+            Route::put('jarmu/{id}', [JarmuController::class, 'update']);
+            Route::delete('jarmu/{id}', [JarmuController::class, 'destroy']);
     
             //Napi arak (admin route)
             Route::get('napi_arak', [NapiArakController::class, 'index']);
