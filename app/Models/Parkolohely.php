@@ -17,7 +17,7 @@ class Parkolohely extends Model
     protected $fillable = [
         'hely_tipusa',
         'statusz',
-
+        'emelet'
     ];
 
     public function tipus(): BelongsTo

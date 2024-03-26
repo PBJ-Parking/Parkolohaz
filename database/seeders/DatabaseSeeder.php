@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Jarmu;
+use App\Models\Parkolohely;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -68,10 +71,13 @@ class DatabaseSeeder extends Seeder
             \App\Models\NapiArak::factory(1)->create([
                 'mikortol' => $kovetkezo_datum
             ]);
-        }
+        };
+
+        
+        Parkolohely::factory(72)->create();
+        
 
         \App\Models\Kedvezmenyek::factory(7)->create();
-        \App\Models\Parkolohely::factory(50)->create();
         \App\Models\Berles::factory(100)->create();
     }
 }

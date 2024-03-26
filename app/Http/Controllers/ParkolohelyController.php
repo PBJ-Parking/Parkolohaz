@@ -25,6 +25,7 @@ class ParkolohelyController extends Controller
         $parkolohely = new Parkolohely();
         $parkolohely->hely_tipusa = $request->hely_tipusa;
         $parkolohely->statusz = $request->statusz;
+        $parkolohely->emelet = $request->emelet;
         $parkolohely->save();
     }
 
@@ -33,12 +34,21 @@ class ParkolohelyController extends Controller
         $parkolohely = Parkolohely::find($id);
         $parkolohely->hely_tipusa = $request->hely_tipusa;
         $parkolohely->statusz = $request->statusz;
+        $parkolohely->emelet = $request->emelet;
         $parkolohely->save();
     }
     public function destroy($id)
     {
         Parkolohely::find($id)->delete();
     }
+
+    public function rules()
+{
+    return [
+        'emelet' => 'required|integer|between:1,3',
+    ];
+}
+
 
     public function parkolohely_statusz($statusz)
     {
