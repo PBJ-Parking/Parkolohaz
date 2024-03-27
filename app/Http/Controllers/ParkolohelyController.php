@@ -43,11 +43,11 @@ class ParkolohelyController extends Controller
     }
 
     public function rules()
-{
-    return [
-        'emelet' => 'required|integer|between:1,3',
-    ];
-}
+    {
+        return [
+            'emelet' => 'required|integer|between:1,3',
+        ];
+    }
 
 
     public function parkolohely_statusz($statusz)
@@ -56,5 +56,24 @@ class ParkolohelyController extends Controller
         SELECT * FROM parkolohely
         where statusz = ?;
         ", [$statusz]);
+    }
+
+    public function elsoEmelet()
+    {
+        return DB::select("
+        Select * from parkolohely
+        where emelet = 1");
+    }
+    public function masodikEmelet()
+    {
+        return DB::select("
+        Select * from parkolohely
+        where emelet = 2");
+    }
+    public function harmadikEmelet()
+    {
+        return DB::select("
+        Select * from parkolohely
+        where emelet = 3");
     }
 }
