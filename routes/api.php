@@ -38,9 +38,8 @@ Route::middleware(['auth.basic'])->group(function () {
     //Parkolóhely adatok:
     Route::get('parkolohely/{id}', [ParkolohelyController::class, 'show']);
     Route::get('parkolohely', [ParkolohelyController::class, 'index']);
-    Route::get('elsoEmelet', [ParkolohelyController::class, 'elsoEmelet']);
-    Route::get('masodikEmelet', [ParkolohelyController::class, 'masodikEmelet']);
-    Route::get('harmadikEmelet', [ParkolohelyController::class, 'harmadikEmelet']);
+    Route::get('emeletek/{emelet}', [ParkolohelyController::class, 'emeletek']);
+
 
     #bejelentkezett felhasználó Jármű adatai
     Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']);

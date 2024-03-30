@@ -60,8 +60,31 @@ class ParkolohelyController extends Controller
 
     public function emeletek($emelet)
     {
+        $helyek = Parkolohely::where("emelet", "=", $emelet)->get();
+
+        $returnData = [];
+
+        foreach ($helyek as $hely) {
+            $returnData[$hely->tipus->elnevezes][] = $hely;
+        }
+
+
+        return $returnData;
+
+
+        /* $helyek = DB::select("SELECT * FROM parkolohely WHERE emelet = $emelet AND hely_tipusa = '$tipus'");
+
+        $returnData = [];
+        foreach ($helyek as $hely) {
+            $returnData[$hely->hely_tipusa] = $hely;
+        }
+
+        return $returnData;
+
+
         return DB::select("
-        Select * from parkolohely
-        where emelet = $emelet");
+        SELECT *
+        FROM parkolohely
+        WHERE emelet = $emelet AND hely_tipusa = '$tipus'"); */
     }
 }
