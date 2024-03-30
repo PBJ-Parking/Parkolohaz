@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id('hely_id');
             
             $table->foreignId('hely_tipusa')->references('id')->on('tipus');
-            $table->char('statusz',1);
+            $table->char('statusz',1)->default('s');
             $table->smallInteger('emelet');
             $table->timestamps();
         });
+        
     }
 
     /**

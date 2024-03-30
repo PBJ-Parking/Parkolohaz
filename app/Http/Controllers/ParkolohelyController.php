@@ -58,22 +58,10 @@ class ParkolohelyController extends Controller
         ", [$statusz]);
     }
 
-    public function elsoEmelet()
+    public function emeletek($emelet)
     {
         return DB::select("
         Select * from parkolohely
-        where emelet = 1");
-    }
-    public function masodikEmelet()
-    {
-        return DB::select("
-        Select * from parkolohely
-        where emelet = 2");
-    }
-    public function harmadikEmelet()
-    {
-        return DB::select("
-        Select * from parkolohely
-        where emelet = 3");
+        where emelet = $emelet");
     }
 }

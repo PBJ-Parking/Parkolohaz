@@ -52,7 +52,7 @@ class NapiArakController extends Controller
     }
 
     public function akt_arak(){
-       return  DB::select("SELECT * from (Select Max(mikortol) as mikortol, tipus FROM `napi_arak` where mikortol<=CURRENT_DATE() GROUP by tipus) tipusonkent inner join Napi_arak using (mikortol, tipus);");
+       return  DB::select("SELECT * from (Select Max(mikortol) as mikortol, tipus FROM `napi_arak` where mikortol<=CURRENT_DATE() GROUP by tipus) tipusonkent inner join Napi_arak using (mikortol, tipus) inner join tipus on tipusonkent.tipus=tipus.id;");
     }
 
 }

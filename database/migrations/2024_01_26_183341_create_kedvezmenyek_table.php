@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,6 +20,9 @@ return new class extends Migration
             $table->integer('merteke');
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatartol_nagyobb_egyenlo_mint_nulla CHECK (hatartol >= 0);');
+        DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_merteke_nulla_szaz_kozotti CHECK (merteke >= 0 and merteke <= 100);');
     }
 
     /**
