@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BerlesController extends Controller
 {
@@ -51,5 +52,13 @@ class BerlesController extends Controller
     public function destroy($jarmu_id, $foglalas_datuma)
     {
         $this->show($jarmu_id, $foglalas_datuma)->delete();
+    }
+
+
+    public function nap_vegen_nem_fizetett()
+    {
+        return DB::select("
+        Select hely_id from berles
+        where fizetve = 0");
     }
 }
