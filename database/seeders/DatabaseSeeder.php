@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'password' => "hateyoudad"
         ]);
 
-        \App\Models\User::factory(1)->create([
+        ([
             'name' => "Admin Bandi",
             'email' => "admin@admin.com",
             'password' => "admin123",
@@ -61,6 +61,105 @@ class DatabaseSeeder extends Seeder
             'jarmu_tipus' => 1,
             "generalt_azon" => 1
         ]);
+
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '24-es alap kedvezmény',
+            'hatartol' => 0,
+            'hatarig' => 7,
+            'mikortol' => '2024-01-01',
+            'meddig' => null,
+            'merteke' => 0,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '24-es alap kedvezmény',
+            'hatartol' => 8,
+            'hatarig' => 14,
+            'mikortol' => '2024-01-01',
+            'meddig' => null,
+            'merteke' => 5,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '24-es alap kedvezmény',
+            'hatartol' => 15,
+            'hatarig' => 29,
+            'mikortol' => '2024-01-01',
+            'meddig' => null,
+            'merteke' => 10,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '24-es alap kedvezmény',
+            'hatartol' => 30,
+            'hatarig' => null,
+            'mikortol' => '2024-01-01',
+            'meddig' => null,
+            'merteke' => 15,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as Karácsonyi',
+            'hatartol' => 0,
+            'hatarig' => 7,
+            'mikortol' => '2023-12-01',
+            'meddig' => '2023-12-31',
+            'merteke' => 5,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as Karácsonyi',
+            'hatartol' => 8,
+            'hatarig' => 14,
+            'mikortol' => '2023-12-01',
+            'meddig' => '2023-12-31',
+            'merteke' => 10,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as Karácsonyi',
+            'hatartol' => 15,
+            'hatarig' => 29,
+            'mikortol' => '2023-12-01',
+            'meddig' => '2023-12-31',
+            'merteke' => 15,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as Karácsonyi',
+            'hatartol' => 30,
+            'hatarig' => null,
+            'mikortol' => '2023-12-01',
+            'meddig' => '2023-12-31',
+            'merteke' => 20,
+        ]);
+       \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as alap kedvezmény',
+            'hatartol' => 0,
+            'hatarig' => 7,
+            'mikortol' => '2023-01-01',
+            'meddig' => '2023-11-30',
+            'merteke' => 0,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as alap kedvezmény',
+            'hatartol' => 8,
+            'hatarig' => 14,
+            'mikortol' => '2023-01-01',
+            'meddig' => '2023-11-30',
+            'merteke' => 4,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as alap kedvezmény',
+            'hatartol' => 15,
+            'hatarig' => 29,
+            'mikortol' => '2023-01-01',
+            'meddig' => '2023-11-30',
+            'merteke' => 8,
+        ]);
+        \App\Models\Kedvezmenyek::factory(1)->create([
+            'megnevezes' => '23-as alap kedvezmény',
+            'hatartol' => 30,
+            'hatarig' => null,
+            'mikortol' => '2023-01-01',
+            'meddig' => '2023-11-30',
+            'merteke' => 15,
+        ]);
+        
+        
 
 
         $kovetkezo_datum = $kezdodatum;
@@ -77,7 +176,7 @@ class DatabaseSeeder extends Seeder
         Parkolohely::factory(72)->create();
         
 
-        \App\Models\Kedvezmenyek::factory(7)->create();
+        /* \App\Models\Kedvezmenyek::factory(7)->create(); */
         \App\Models\Berles::factory(100)->create();
     }
 }
