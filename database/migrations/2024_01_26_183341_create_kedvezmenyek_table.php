@@ -16,12 +16,15 @@ return new class extends Migration
             $table->id('kedvezmeny_id');
             $table->string('megnevezes', 50);
             $table->integer('hatartol');
-            $table->date('mikortol');
+            $table->integer('hatarig')->nullable();
+            $table->dateTime('mikortol');
+            $table->dateTime('meddig')->nullable();
             $table->integer('merteke');
             $table->timestamps();
         });
 
         DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatartol_nagyobb_egyenlo_mint_nulla CHECK (hatartol >= 0);');
+        DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatarig_nagyobb_egyenlo_mint_nulla CHECK (hatarig >= 0);');
         DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_merteke_nulla_szaz_kozotti CHECK (merteke >= 0 and merteke <= 100);');
     }
 

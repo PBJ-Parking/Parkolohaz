@@ -16,8 +16,10 @@ class Kedvezmenyek extends Model
     protected $fillable = [
         'megnevezes',
         'hatartol',
+        'hatarig',
         'mikortol',
         'merteke',
+        'meddig',
     ];
 
     public function berlesek(): HasMany
