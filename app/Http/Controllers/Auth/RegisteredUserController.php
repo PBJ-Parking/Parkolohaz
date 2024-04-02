@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
             'password_confirmation' => $password,
             'megrendelo_tipus' =>$request->megrendelo_tipus,
             'adoszam' => $request->adoszam,
-            'admin_e' =>$request->admin_e,
+            'admin_e' =>0,
         ]);
 
         event(new Registered($user));
