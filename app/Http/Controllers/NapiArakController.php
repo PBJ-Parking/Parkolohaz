@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NapiArak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class NapiArakController extends Controller
 {
@@ -53,6 +54,12 @@ class NapiArakController extends Controller
 
     public function akt_arak(){
        return  DB::select("SELECT * from (Select Max(mikortol) as mikortol, tipus FROM `napi_arak` where mikortol<=CURRENT_DATE() GROUP by tipus) tipusonkent inner join Napi_arak using (mikortol, tipus) inner join tipus on tipusonkent.tipus=tipus.id;");
+    }
+
+    public function valasztottTipusAr($tipus){
+        $ar = NapiArak::select('ar')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->pluck('ar')->first();
+        // $ar = NapiArak::select('ar')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->toRawSql();
+        return $ar;
     }
 
 }

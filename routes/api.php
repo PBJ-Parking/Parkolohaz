@@ -40,6 +40,7 @@ Route::middleware(['auth.basic'])->group(function () {
     Route::get('parkolohely', [ParkolohelyController::class, 'index']);
     Route::get('emeletek/{emelet}', [ParkolohelyController::class, 'emeletek']);
     Route::get('kedvezmenyNapokSzamanakSzerint/{napokSzama}', [KedvezmenyekController::class, 'kedvezmenyNapokSzamanakSzerint']);
+    Route::get('valasztottTipusAr/{tipus}', [NapiArakController::class, 'valasztottTipusAr']);
 
 
     #bejelentkezett felhasználó Jármű adatai
