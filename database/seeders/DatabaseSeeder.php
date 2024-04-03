@@ -48,12 +48,13 @@ class DatabaseSeeder extends Seeder
             'password' => "hateyoudad"
         ]);
 
-        ([
-            'name' => "Admin Bandi",
-            'email' => "admin@admin.com",
-            'password' => "admin123",
-            "admin_e" => 1
-        ]);
+        
+        \App\Models\User::factory(1)->create([
+                'name' => "Admin Bandi",
+                'email' => "admin@admin.com",
+                'password' => "admin123",
+                "admin_e" => 1
+            ]);
 
         \App\Models\Jarmu::factory(1)->create([
             'rendszam' => "FOS666",
@@ -126,7 +127,7 @@ class DatabaseSeeder extends Seeder
             'meddig' => '2023-12-31',
             'merteke' => 20,
         ]);
-       \App\Models\Kedvezmenyek::factory(1)->create([
+        \App\Models\Kedvezmenyek::factory(1)->create([
             'megnevezes' => '23-as alap kedvezmény',
             'hatartol' => 0,
             'hatarig' => 7,
@@ -158,23 +159,23 @@ class DatabaseSeeder extends Seeder
             'meddig' => '2023-11-30',
             'merteke' => 15,
         ]);
-        
-        
+
+
 
 
         $kovetkezo_datum = $kezdodatum;
         for ($i = 0; $i < 10; $i++) {
-                $mennyiseg = rand(30, 100);
-                $kovetkezo_datum = $kovetkezo_datum->addDays($mennyiseg);
+            $mennyiseg = rand(30, 100);
+            $kovetkezo_datum = $kovetkezo_datum->addDays($mennyiseg);
 
             \App\Models\NapiArak::factory(1)->create([
                 'mikortol' => $kovetkezo_datum
             ]);
         };
 
-        
+
         Parkolohely::factory(72)->create();
-        
+
 
         /* \App\Models\Kedvezmenyek::factory(7)->create(); */
         \App\Models\Berles::factory(100)->create();
