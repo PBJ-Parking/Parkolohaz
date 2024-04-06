@@ -54,7 +54,7 @@ class ParkolohelyFactory extends Factory
 
         return [
             'hely_tipusa' => $hely_tipusa,
-            'statusz' => fake()->randomElement(['s', 'f', 'n', 'b']), 
+            'statusz' => fake()->randomElement(['s', 'f', 'n', 'b', 'm']), 
             'emelet' => $emelet,
         ];
     }

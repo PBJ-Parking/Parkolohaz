@@ -24,7 +24,21 @@ return new class extends Migration
                      SET MESSAGE_TEXT = 'foglalt vagy bérelt parkolóhely nem törölhető.';
              END IF;
          END;"
-         ); 
+        ); 
+
+        DB::unprepared(
+            "
+        CREATE TRIGGER trg_parkolohely_megszunetetese
+        BEFORE Update ON parkolohely
+        FOR EACH ROW
+        BEGIN
+            IF OLD.statusz = 'F' OR OLD.statusz = 'B' THEN
+                SIGNAL SQLSTATE '45000'
+              
+                    SET MESSAGE_TEXT = 'foglalt vagy bérelt parkolóhely nem szüntethető meg.';
+            END IF;
+        END;"
+       ); 
     }
 
     /**
@@ -33,7 +47,8 @@ return new class extends Migration
     public function down(): void
     {
         DB::unprepared(
-            'drop trigger trg_parkolohely_torlese'
+            'drop trigger trg_parkolohely_torlese
+            drop trigger trg_parkolohely_megszuntetese'
         );
     }
 };
