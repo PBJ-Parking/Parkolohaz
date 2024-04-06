@@ -40,6 +40,7 @@ class ParkolohelyController extends Controller
     public function destroy($id)
     {
         Parkolohely::find($id)->delete();
+       
     }
 
     public function rules()
@@ -86,5 +87,16 @@ class ParkolohelyController extends Controller
         SELECT *
         FROM parkolohely
         WHERE emelet = $emelet AND hely_tipusa = '$tipus'"); */
+    }
+
+
+
+    public function megszuntet(Request $request, $id)
+    {
+        $parkolohely = Parkolohely::find($id);
+        $parkolohely->hely_tipusa = $request->hely_tipusa;
+        $parkolohely->statusz ='m';
+        $parkolohely->emelet = $request->emelet;
+        $parkolohely->save();
     }
 }

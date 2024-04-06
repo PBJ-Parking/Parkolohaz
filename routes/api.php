@@ -89,6 +89,7 @@ Route::middleware(['auth.basic'])->group(function () {
         Route::post('parkolohely', [ParkolohelyController::class, 'store']);
         Route::put('parkolohely/{id}', [ParkolohelyController::class, 'update']);
         Route::delete('parkolohely/{id}', [ParkolohelyController::class, 'destroy']);
+        Route::put('parkolohely/{id}', [ParkolohelyController::class, 'megszuntet']);
 
         //Berles (admin route) 
         Route::get('berlesek', [BerlesController::class, 'index']);
