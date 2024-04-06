@@ -33,7 +33,7 @@ return new class extends Migration
             IF OLD.statusz = 'M'  THEN
                 SIGNAL SQLSTATE '45000'
               
-                    SET MESSAGE_TEXT = 'megszuntetett parkolóhely nem módosítható.';
+                    SET MESSAGE_TEXT = 'megszüntetett parkolóhely nem módosítható.';
             END IF;
         END;"
        ); 
