@@ -61,5 +61,10 @@ class NapiArakController extends Controller
         // $ar = NapiArak::select('ar')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->toRawSql();
         return $ar;
     }
+    public function valasztottArTipus($tipus){
+        $arTipus = NapiArak::select('ar_id')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->first();
+        // $ar = NapiArak::select('ar')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->toRawSql();
+        return $arTipus;
+    }
 
 }

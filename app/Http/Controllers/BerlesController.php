@@ -25,13 +25,12 @@ class BerlesController extends Controller
     {
         $berles = new Berles();
         $berles->jarmu_id = $request->jarmu_id;
-        $berles->foglalas_datuma = $request->foglalas_datuma;
+        $berles->foglalas_datuma = now();
         $berles->foglalas_kezdet = $request->foglalas_kezdet;
         $berles->foglalas_vege = $request->foglalas_vege;
         $berles->ar_id = $request->ar_id;
         $berles->kedvezmeny_id = $request->kedvezmeny_id;
         $berles->hely_id = $request->hely_id;
-        $berles->generalt_kod = $request->generalt_kod;
         $berles->fizetve = $request->fizetve;
         $berles->save();
     }
@@ -44,7 +43,6 @@ class BerlesController extends Controller
         $berles->ar_id = $request->ar_id;
         $berles->kedvezmeny_id = $request->kedvezmeny_id;
         $berles->hely_id = $request->hely_id;
-        $berles->generalt_kod = $request->generalt_kod;
         $berles->fizetve = $request->fizetve;
         $berles->save();
     }
