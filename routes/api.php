@@ -98,3 +98,4 @@ Route::middleware(['auth.basic'])->group(function () {
 });
 #vendég api-jai:
 Route::get('/akt_arak', [NapiArakController::class, 'akt_arak']);
+Route::get('/maxKedvezmeny', [KedvezmenyekController::class, 'kedvezmenyAktualisMax']);

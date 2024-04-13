@@ -71,4 +71,16 @@ class KedvezmenyekController extends Controller
         //dd($kedvezmeny->toSql());
         return $kedvezmeny;
     }
+
+      public function kedvezmenyAktualisMax()
+    {
+       
+   
+        $kedvezmeny = Kedvezmenyek::where('mikortol', '<=', date('Y-m-d')) 
+            ->whereRaw('(meddig >= CURDATE() or meddig is null)')
+            ->whereRaw('(merteke>0)')
+            ->orderBy('merteke', 'desc')->first();
+       
+        return $kedvezmeny;
+    }
 }
