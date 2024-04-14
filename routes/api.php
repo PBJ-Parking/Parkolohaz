@@ -90,6 +90,7 @@ Route::middleware(['auth.basic'])->group(function () {
         Route::put('parkolohely/{id}', [ParkolohelyController::class, 'update']);
         Route::delete('parkolohely/{id}', [ParkolohelyController::class, 'destroy']);
         Route::put('parkolohely/{id}', [ParkolohelyController::class, 'megszuntet']);
+        Route::get('parkolohely_darab_statusz', [ParkolohelyController::class, 'parkolohely_szama_statuszok']);
 
         //Berles (admin route) 
         Route::get('berlesek', [BerlesController::class, 'index']);

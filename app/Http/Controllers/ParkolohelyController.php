@@ -99,4 +99,15 @@ class ParkolohelyController extends Controller
         $parkolohely->emelet = $request->emelet;
         $parkolohely->save();
     }
+
+    public function parkolohely_szama_statuszok()
+    {
+        return response()->json (DB::select(
+            "SELECT statusz, COUNT(statusz)  as darab FROM parkolohely GROUP BY statusz;"
+        ));
+      
+        }
+
+
 }
+
