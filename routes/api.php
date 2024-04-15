@@ -94,7 +94,7 @@ Route::middleware(['auth.basic'])->group(function () {
 
         //Berles (admin route) 
         Route::get('berlesek', [BerlesController::class, 'index']);
-        Route::put('berles/{rendszam}/{foglalas_datuma}', [BerlesController::class, 'update']);
+        Route::put('berlesek/{jarmu_id}/{foglalas_datuma}', [BerlesController::class, 'update']);
     });
 });
 #vendég api-jai:
