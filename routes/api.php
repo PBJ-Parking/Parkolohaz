@@ -65,8 +65,8 @@ Route::middleware(['auth.basic'])->group(function () {
 
         //Jarmu (admin route)
         Route::get('jarmuvek', [JarmuController::class, 'index']);
-        Route::put('jarmu/{id}', [JarmuController::class, 'update']);
-        Route::delete('jarmu/{id}', [JarmuController::class, 'destroy']);
+        Route::put('jarmuvek/{id}', [JarmuController::class, 'update']);
+        Route::delete('jarmuvek/{id}', [JarmuController::class, 'destroy']);
 
         //Napi arak (admin route)
         Route::get('napi_arak', [NapiArakController::class, 'index']);
