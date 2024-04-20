@@ -26,6 +26,7 @@ return new class extends Migration
         });
 
         DB::statement('ALTER TABLE berles ADD CONSTRAINT chk_vege_nagyobb_egyenlo_mint_kezdete CHECK (foglalas_vege >= foglalas_kezdet);');
+        DB::statement('ALTER TABLE berles ADD CONSTRAINT chk_fizetve_nulla_vagy_egy_erteku_lehet CHECK (fizetve = 0 or fizetve = 1);');
 
     }
 

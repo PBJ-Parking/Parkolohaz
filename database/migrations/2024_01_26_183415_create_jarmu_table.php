@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,6 +20,8 @@ return new class extends Migration
             $table->boolean('generalt_azon')->default(0);
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE jarmu ADD CONSTRAINT chk_generalt_azon_nulla_vagy_egy_erteku_lehet CHECK (generalt_azon = 0 or generalt_azon = 1);');
     }
 
     /**

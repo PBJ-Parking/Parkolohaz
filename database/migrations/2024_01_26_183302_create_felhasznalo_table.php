@@ -30,6 +30,7 @@ return new class extends Migration
         });
 
         DB::statement('ALTER TABLE user ADD CONSTRAINT chk_ceges_vagy_maganszemely_lehet_csak_megadva CHECK (megrendelo_tipus = "M" or megrendelo_tipus = "C");');
+        DB::statement('ALTER TABLE user ADD CONSTRAINT chk_admin_e_nulla_vagy_egy_erteku_lehet CHECK (admin_e = 0 or admin_e = 1);');
 
     }
 
