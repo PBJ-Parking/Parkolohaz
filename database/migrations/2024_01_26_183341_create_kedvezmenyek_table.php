@@ -24,7 +24,7 @@ return new class extends Migration
         });
 
         DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatartol_nagyobb_egyenlo_mint_nulla CHECK (hatartol >= 0);');
-        DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatarig_nagyobb_egyenlo_mint_hatartol CHECK (hatarig >hatartol);');
+        DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_hatarig_nagyobb_egyenlo_mint_hatartol CHECK (hatarig >=hatartol);');
         DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_merteke_nulla_es_szaz_kozotti CHECK (merteke >= 0 and merteke <= 100);');
         DB::statement('ALTER TABLE kedvezmenyek ADD CONSTRAINT chk_meddig_nagyobb_egyenlo_mint_mikortol CHECK (meddig=null or meddig >=mikortol);');
     }
