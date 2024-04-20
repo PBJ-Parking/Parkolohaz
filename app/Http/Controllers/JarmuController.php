@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jarmu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class JarmuController extends Controller
 {
@@ -57,6 +58,13 @@ class JarmuController extends Controller
         $felhasznalo = Auth::user()->id;
         $jarmu = Jarmu::with('felhasznalo')->where('felhasznalok_id', '=', $felhasznalo)->first();
         return $jarmu;
+    }
+
+    public function jarmu_szama_tipusok()
+    {
+        return response()->json(DB::select(
+            "SELECT t.elnevezes, COUNT(t.elnevezes) as darab FROM jarmu as j inner join tipus as t on t.id=j.jarmu_tipus GROUP BY t.elnevezes;"
+        ));
     }
 
 }
