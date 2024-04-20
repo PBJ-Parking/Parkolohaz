@@ -40,7 +40,6 @@ class ParkolohelyController extends Controller
     public function destroy($id)
     {
         Parkolohely::find($id)->delete();
-       
     }
 
     public function rules()
@@ -95,19 +94,22 @@ class ParkolohelyController extends Controller
     {
         $parkolohely = Parkolohely::find($id);
         $parkolohely->hely_tipusa = $request->hely_tipusa;
-        $parkolohely->statusz ='m';
+        $parkolohely->statusz = 'm';
         $parkolohely->emelet = $request->emelet;
         $parkolohely->save();
     }
 
     public function parkolohely_szama_statuszok()
     {
-        return response()->json (DB::select(
+        return response()->json(DB::select(
             "SELECT statusz, COUNT(statusz)  as darab FROM parkolohely GROUP BY statusz;"
         ));
-      
-        }
+    }
 
-
+    public function parkolohely_szama_tipusok()
+    {
+        return response()->json(DB::select(
+            "SELECT t.elnevezes, COUNT(t.elnevezes) as darab FROM parkolohely as p inner join tipus as t on t.id=p.hely_tipusa GROUP BY t.elnevezes;"
+        ));
+    }
 }
-

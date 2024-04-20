@@ -91,7 +91,7 @@ Route::middleware(['auth.basic'])->group(function () {
         Route::delete('parkolohely/{id}', [ParkolohelyController::class, 'destroy']);
         Route::put('parkolohely_megszuntet/{id}', [ParkolohelyController::class, 'megszuntet']);
         Route::get('parkolohely_darab_statusz', [ParkolohelyController::class, 'parkolohely_szama_statuszok']);
-
+        Route::get('parkolohely_darab_tipusok', [ParkolohelyController::class, 'parkolohely_szama_tipusok']);
         //Berles (admin route) 
         Route::get('berlesek', [BerlesController::class, 'index']);
         Route::put('berlesek/{jarmu_id}/{foglalas_datuma}', [BerlesController::class, 'update']);
