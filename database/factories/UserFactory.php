@@ -23,6 +23,10 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $megrendelo_tipusa=fake()->randomElement(['M', 'C']);
+        if ($megrendelo_tipusa=='C'){
+        $adoszam=fake()->regexify('^[0-9]{8}-[0-9]-[0-9]{2}$');
+    }else{$adoszam=null;}
         return [
             'name'=>fake('hu_HU')->name(),
             'telefonszam'=>fake()->numerify('+36 ## ### ####'),
@@ -31,8 +35,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password'=> static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'megrendelo_tipus'=>fake()->randomElement(['M', 'C']),
-            'adoszam'=>fake()->regexify('^[0-9]{8}-[0-9]-[0-9]{2}$'),
+            'megrendelo_tipus'=> $megrendelo_tipusa,
+            'adoszam'=>$adoszam,
             'admin_e'=>0,
         ];
     }

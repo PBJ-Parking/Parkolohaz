@@ -26,9 +26,16 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'megrendelo_tipus' =>['required', 'string', 'regex:/^c|m$/i'],
-            'adoszam' => ['required', 'string', 'regex:/^[0-9]{8}-[0-9]-[0-9]{2}$/'],
           
         ]);
+
+        if ($request->megrendelo_tipus=='C'){
+            $request->validate([
+               
+                'adoszam' => ['required', 'string', 'regex:/^[0-9]{8}-[0-9]-[0-9]{2}$/'],
+              
+            ]);  
+        }
  // átírva adatbázis szerkezet szerint
        
  $password= Hash::make($request->password);

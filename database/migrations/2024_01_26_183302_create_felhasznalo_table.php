@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->char('megrendelo_tipus', 1);
-            $table->char('adoszam', 13);
+            $table->char('adoszam', 13)->nullable();
             $table->boolean('admin_e')-> default(0);
             $table->timestamps();
         });
