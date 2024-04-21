@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'password'=> static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'megrendelo_tipus'=>fake()->randomElement(['M', 'C']),
-            'adoszam'=>fake()->regexify('[0-9]{13}'),
+            'adoszam'=>fake()->regexify('^[0-9]{8}-[0-9]-[0-9]{2}$'),
             'admin_e'=>0,
         ];
     }
