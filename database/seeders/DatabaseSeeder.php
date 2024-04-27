@@ -43,9 +43,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory(1)->create([
-            'name' => "Alig Elek",
-            'email' => "dogoljmeg@dead.com",
-            'password' => "hateyoudad",
+            'name' => "Teszt Elek",
+            'email' => "elek@teszt.com",
+            'password' => "teszt123",
             "admin_e" => 0
         ]);
 
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         \App\Models\Jarmu::factory(1)->create([
-            'rendszam' => "FOS666",
+            'rendszam' => "ABC123",
             'felhasznalok_id' => 21,
             'jarmu_tipus' => 1,
             "generalt_azon" => 1
