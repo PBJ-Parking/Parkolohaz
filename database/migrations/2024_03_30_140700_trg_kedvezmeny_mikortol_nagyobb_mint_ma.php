@@ -14,7 +14,7 @@ return new class extends Migration
     {
         /* DB::unprepared(
              "
-         CREATE TRIGGER trg_kedvezmeny_mikortol_nagyobb mint_ma
+         CREATE TRIGGER trg_kedvezmeny_mikortol_nagyobb_mint_ma
          BEFORE INSERT ON kedvezmenyek
          FOR EACH ROW
          BEGIN
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::unprepared("DROP TRIGGER trg_kedvezmeny_mikortol_nagyobb mint_ma");
+        DB::unprepared("DROP TRIGGER trg_kedvezmeny_mikortol_nagyobb_mint_ma");
     }
 };

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    
+
     /**
      * Run the migrations.
      */
@@ -16,22 +16,21 @@ return new class extends Migration
     {
         Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 50);
             $table->char('telefonszam', 15)->nullable();;
             $table->string('cim')->nullable();
-            $table->string('email')->unique();
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->char('megrendelo_tipus', 1);
             $table->char('adoszam', 13)->nullable();
-            $table->boolean('admin_e')-> default(0);
+            $table->boolean('admin_e')->default(0);
             $table->timestamps();
         });
 
         DB::statement('ALTER TABLE user ADD CONSTRAINT chk_ceges_vagy_maganszemely_lehet_csak_megadva CHECK (megrendelo_tipus = "M" or megrendelo_tipus = "C");');
         DB::statement('ALTER TABLE user ADD CONSTRAINT chk_admin_e_nulla_vagy_egy_erteku_lehet CHECK (admin_e = 0 or admin_e = 1);');
-
     }
 
     /**

@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('napi_arak', function (Blueprint $table) {
             $table->id('ar_id');
-            $table->string('megnevezes');
+            $table->string('megnevezes', 50);
             $table->integer('ar');
             $table->date('mikortol');
             $table->foreignId('tipus')->references('id')->on('tipus');
