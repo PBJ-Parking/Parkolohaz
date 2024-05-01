@@ -1,0 +1,148 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "parkolohaz_teszt_admin",
+    "collectionId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+    "dateExported": "2024-05-01T15:29:44.519Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "05c54c9b-c15b-437c-b85a-6b009feccb45",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "get_felhasznalok_adminkent",
+            "url": "felhasznalok",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-01T14:55:31.033Z",
+            "modified": "2024-05-01T14:56:20.057Z",
+            "headers": []
+        },
+        {
+            "_id": "1e7c6e14-62f3-4a55-a08e-20272f176118",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "get_felhasznalok_felhasznalokent",
+            "url": "felhasznalok",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-01T14:56:25.354Z",
+            "modified": "2024-05-01T14:57:01.885Z",
+            "headers": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "elek@teszt.hu",
+                    "password": "teszt123"
+                }
+            }
+        }, 
+        {
+            "_id": "d5238e02-d321-47ac-8633-b764d30969a5",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "post_parkolohely_adminkent",
+            "url": "parkolohely",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-05-01T15:01:11.541Z",
+            "modified": "2024-05-01T15:18:09.067Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hely_tipusa\" : 4,\n  \"statusz\" : \"s\",\n  \"emelet\": 4\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9993ae5f-4ef2-4de2-a9b3-f5dad208849c",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "post_parkolohely_felhasznalokent",
+            "url": "parkolohely",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-05-01T15:18:42.643Z",
+            "modified": "2024-05-01T15:19:19.399Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hely_tipusa\" : 1,\n  \"statusz\" : \"s\",\n  \"emelet\": 5\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "elek@teszt.hu",
+                    "password": "teszt123"
+                }
+            }
+        },
+        {
+            "_id": "b9d48397-a2f4-4aec-ba6a-90f57886eb4c",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "put_jarmuvek_adminkent",
+            "url": "jarmuvek/1",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-05-01T15:19:48.538Z",
+            "modified": "2024-05-01T15:22:03.933Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"rendszam\" : \"ABCD123\",\n  \"felhasznalok_id\" : 3,\n  \"jarmu_tipus\": 3,\n  \"generalt_azon\": 0\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6e69855b-a654-41c2-af65-2ef1863085ee",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "put_jarmuvek_felhasznalokent",
+            "url": "jarmuvek/1",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-05-01T15:22:09.225Z",
+            "modified": "2024-05-01T15:23:04.050Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"rendszam\" : \"DCBA321\",\n  \"felhasznalok_id\" : 1,\n  \"jarmu_tipus\": 1,\n  \"generalt_azon\": 0\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "elek@teszt.com",
+                    "password": "teszt123"
+                }
+            }
+        },
+        {
+            "_id": "c13a32ef-8ea7-4e41-ae76-fe46cda76de2",
+            "colId": "72aca473-2f7b-4e91-a37a-0814ce6c5110",
+            "containerId": "",
+            "name": "get_parkolohely_statusz_adminkent",
+            "url": "parkolohely_statusz/s",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-05-01T15:27:09.359Z",
+            "modified": "2024-05-01T15:27:47.699Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "admin@admin.com",
+                "password": "admin123"
+            }
+        },
+        "options": {
+            "baseUrl": "localhost:8000/api/"
+        }
+    },
+    "ref": "kpXCWhKsnQtezazjxnGw0SPayiV5GS3vP6sq6vfRPLUOURtCxl-R2QbuaTet4evls1emzBMHQ86WVp6XzsKWDQ"
+}
