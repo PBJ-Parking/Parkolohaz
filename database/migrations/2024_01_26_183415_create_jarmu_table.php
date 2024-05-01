@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('jarmu', function (Blueprint $table) {
             $table->id('jarmu_id');
-            $table->string('rendszam');
+            $table->char('rendszam', 8);
             $table->foreignId('felhasznalok_id')->references('id')->on('user');
             $table->foreignId('jarmu_tipus')->references('id')->on('tipus');
             $table->boolean('generalt_azon')->default(0);
