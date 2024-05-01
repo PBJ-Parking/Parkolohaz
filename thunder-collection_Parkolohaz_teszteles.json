@@ -1,0 +1,158 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Parkolohaz_teszteles",
+    "collectionId": "909000a5-c408-4980-b1d4-17e53837f001",
+    "dateExported": "2024-05-01T14:43:09.777Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8a742b02-fccc-4bd4-b2d5-aa55cadc305d",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "postBerles",
+            "url": "postBerles?jarmu_id=26&foglalas_kezdet=2024-05-01&foglalas_vege=2024-06-01&ar_id=1&kedvezmeny_id=1&hely_id=2&fizetve=1",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-01T14:23:18.203Z",
+            "modified": "2024-05-01T14:30:01.599Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "jarmu_id",
+                    "value": "26",
+                    "isPath": false
+                },
+                {
+                    "name": "foglalas_kezdet",
+                    "value": "2024-05-01",
+                    "isPath": false
+                },
+                {
+                    "name": "foglalas_vege",
+                    "value": "2024-06-01",
+                    "isPath": false
+                },
+                {
+                    "name": "ar_id",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "kedvezmeny_id",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "hely_id",
+                    "value": "2",
+                    "isPath": false
+                },
+                {
+                    "name": "fizetve",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "660f6ee8-b11f-4430-a716-57a2833bae98",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "kedvezmenyNapokSzamanakSzerint",
+            "url": "kedvezmenyNapokSzamanakSzerint/18",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-01T14:30:47.710Z",
+            "modified": "2024-05-01T14:30:52.622Z",
+            "headers": []
+        },
+        {
+            "_id": "a5767b88-ab36-422d-8a32-589b05edacb7",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "emeletek",
+            "url": "emeletek/1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-05-01T14:31:14.700Z",
+            "modified": "2024-05-01T14:31:18.678Z",
+            "headers": []
+        },
+        {
+            "_id": "6892d608-9785-46e6-a9c8-4e69fae7e2e7",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "authAdatok",
+            "url": "authAdatok",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-05-01T14:31:34.245Z",
+            "modified": "2024-05-01T14:31:38.043Z",
+            "headers": []
+        },
+        {
+            "_id": "499e2336-633a-4bd1-8aff-3d4ad102670c",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "felhasznalo Patch",
+            "url": "felhasznalo/1?name=Kardos Gizella",
+            "method": "PATCH",
+            "sortNum": 70000,
+            "created": "2024-05-01T14:33:55.848Z",
+            "modified": "2024-05-01T14:34:35.300Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "Kardos Gizella",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "5359ee00-2b81-4978-9c3a-a655cc4375cb",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "parkolohely Osszes",
+            "url": "parkolohely",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-05-01T14:37:26.892Z",
+            "modified": "2024-05-01T14:38:38.276Z",
+            "headers": []
+        },
+        {
+            "_id": "e2e4dcee-ca6a-413f-8fba-6f279192fca0",
+            "colId": "909000a5-c408-4980-b1d4-17e53837f001",
+            "containerId": "",
+            "name": "jarmu Patch",
+            "url": "jarmu/1?rendszam=ABN753",
+            "method": "PATCH",
+            "sortNum": 90000,
+            "created": "2024-05-01T14:41:38.280Z",
+            "modified": "2024-05-01T14:42:32.901Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "rendszam",
+                    "value": "ABN753",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "elek@teszt.com",
+                "password": "teszt123"
+            }
+        },
+        "options": {
+            "baseUrl": "localhost:8000/api/"
+        }
+    },
+    "ref": "ckL_0yLejr8yKtcupe7xp48Oyvm08W_ot5szq5BuAPtRPKO84iQKjjVp_ZM4Qf4Z5zBtBt4FVWwuW9GFyYN76g"
+}
