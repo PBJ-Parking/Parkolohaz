@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NapiArak;
+use App\Models\Tipus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -65,6 +66,10 @@ class NapiArakController extends Controller
         $arTipus = NapiArak::select('ar_id')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->first();
         // $ar = NapiArak::select('ar')->where('tipus', $tipus)->where('mikortol', '<=', date('Y-m-d'))->orderBy('mikortol', 'desc')->toRawSql();
         return $arTipus;
+    }
+
+    public function tipus_id_fk(){
+        return Tipus::all()->pluck("id"); 
     }
 
 }

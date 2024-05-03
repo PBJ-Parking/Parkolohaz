@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parkolohely;
+use App\Models\Tipus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -111,5 +112,9 @@ class ParkolohelyController extends Controller
         return response()->json(DB::select(
             "SELECT t.elnevezes, COUNT(t.elnevezes) as darab FROM parkolohely as p inner join tipus as t on t.id=p.hely_tipusa GROUP BY t.elnevezes;"
         ));
+    }
+
+    public function tipus_id_fk(){
+        return Tipus::all()->pluck("id"); 
     }
 }

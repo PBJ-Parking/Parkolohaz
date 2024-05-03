@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jarmu;
+use App\Models\Tipus;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +26,7 @@ class JarmuController extends Controller
     public function store(Request $request)
     {
         $jarmu = new Jarmu();
+        $jarmu->rendszam = $request->rendszam;
         $jarmu->felhasznalok_id = $request->felhasznalok_id;
         $jarmu->jarmu_tipus = $request->jarmu_tipus;
         $jarmu->generalt_azon = $request->generalt_azon;
@@ -33,6 +36,7 @@ class JarmuController extends Controller
     public function update(Request $request, $id)
     {
         $jarmu = Jarmu::find($id);
+        $jarmu->rendszam = $request->rendszam;
         $jarmu->felhasznalok_id = $request->felhasznalok_id;
         $jarmu->jarmu_tipus = $request->jarmu_tipus;
         $jarmu->generalt_azon = $request->generalt_azon;
@@ -65,6 +69,14 @@ class JarmuController extends Controller
         return response()->json(DB::select(
             "SELECT t.elnevezes, COUNT(t.elnevezes) as darab FROM jarmu as j inner join tipus as t on t.id=j.jarmu_tipus GROUP BY t.elnevezes;"
         ));
+    }
+
+    public function felhasznalok_id_fk(){
+        return User::all()->pluck("id"); 
+    }
+
+    public function jarmu_tipus_fk(){
+        return Tipus::all()->pluck("id"); 
     }
 
 }

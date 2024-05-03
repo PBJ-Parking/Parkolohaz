@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berles;
+use App\Models\Kedvezmenyek;
+use App\Models\NapiArak;
+use App\Models\Parkolohely;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -58,5 +61,17 @@ class BerlesController extends Controller
         return DB::select("
         Select hely_id from berles
         where fizetve = 0");
+    }
+
+    public function ar_id_fk(){
+        return NapiArak::all()->pluck("ar_id");
+    }
+
+    public function kedvezmeny_id_fk(){
+        return Kedvezmenyek::all()->pluck("kedvezmeny_id");
+    }
+
+    public function hely_id_fk(){
+        return Parkolohely::all()->pluck("hely_id");
     }
 }
