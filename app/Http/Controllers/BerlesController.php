@@ -74,4 +74,8 @@ class BerlesController extends Controller
     public function hely_id_fk(){
         return Parkolohely::all()->pluck("hely_id");
     }
+
+    public function foglalasVege(){
+        return DB::select()
+    }
 }

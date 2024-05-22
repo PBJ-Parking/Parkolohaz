@@ -35,6 +35,7 @@ Route::middleware(['auth.basic'])->group(function () {
     //Felhasznalo adatainak módosítása
     Route::patch('felhasznalo/{id}', [UserController::class, 'patch']);
     Route::patch('jarmu/{id}', [JarmuController::class, 'patch']);
+    Route::patch('parkolohely/{id}', [ParkolohelyController::class, 'patch']);
     //Parkolóhely adatok:
     Route::get('parkolohely/{id}', [ParkolohelyController::class, 'show']);
     Route::get('parkolohely', [ParkolohelyController::class, 'index']);

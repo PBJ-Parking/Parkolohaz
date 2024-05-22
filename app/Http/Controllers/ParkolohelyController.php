@@ -117,4 +117,14 @@ class ParkolohelyController extends Controller
     public function tipus_id_fk(){
         return Tipus::all()->pluck("id"); 
     }
+
+    public function patch(Request $request, $id)
+    {
+        $parkolohely = Parkolohely::find($id);
+        $parkolohely->fill($request->only([
+            'statusz',
+        ]));
+        $parkolohely->save();
+    }
 }
+
