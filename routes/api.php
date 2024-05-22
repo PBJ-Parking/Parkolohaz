@@ -39,15 +39,15 @@ Route::middleware(['auth.basic'])->group(function () {
     //Parkolóhely adatok:
     Route::get('parkolohely/{id}', [ParkolohelyController::class, 'show']);
     Route::get('parkolohely', [ParkolohelyController::class, 'index']);
-    Route::get('emeletek/{emelet}', [ParkolohelyController::class, 'emeletek']); //ez
-    Route::get('kedvezmenyNapokSzamanakSzerint/{napokSzama}', [KedvezmenyekController::class, 'kedvezmenyNapokSzamanakSzerint']); //ez
+    Route::get('emeletek/{emelet}', [ParkolohelyController::class, 'emeletek']); 
+    Route::get('kedvezmenyNapokSzamanakSzerint/{napokSzama}', [KedvezmenyekController::class, 'kedvezmenyNapokSzamanakSzerint']); 
     Route::get('valasztottTipusAr/{tipus}', [NapiArakController::class, 'valasztottTipusAr']);
     Route::get('valasztottArTipus/{tipus}', [NapiArakController::class, 'valasztottArTipus']);
     Route::post('postBerles', [BerlesController::class, 'store']);
     Route::post('jarmuvek', [JarmuController::class, 'store']);
 
     #bejelentkezett felhasználó Jármű adatai
-    Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']); //ez
+    Route::get('/authAdatok', [JarmuController::class, 'AuthJarmu']); 
 
     Route::middleware(['admin'])->group(function () {
         #admin api-jai:
@@ -105,6 +105,7 @@ Route::middleware(['auth.basic'])->group(function () {
         Route::get('ar_id_fk', [BerlesController::class, 'ar_id_fk']);
         Route::get('kedvezmeny_id_fk', [BerlesController::class, 'kedvezmeny_id_fk']);
         Route::get('hely_id_fk', [BerlesController::class, 'hely_id_fk']);
+        Route::get('jarmu_id_fk', [BerlesController::class, 'jarmu_id_fk']);
     });
 });
 #vendég api-jai:
